@@ -35,7 +35,7 @@ class PloneStatsView(BrowserView):
         values = self.portal_catalog.Indexes['Subject'].uniqueValues(withLengths=True)
         values = sorted(values, key=itemgetter(1), reverse=True)
         chart = pygal.Pie()
-        chart.title = 'Kewords'
+        chart.title = 'Keywords'
         for value in values:
             chart.add(value[0], value[1])
         return chart.render()

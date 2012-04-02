@@ -6,7 +6,12 @@ use and integration of pygal into plone. It shows how to create charts
 and render them into a pagetemplate. It uses the portal catalog indexes
 for the analyses.
 
-It will give you an overview of the contents in your plonesite:
+Usage
+=====
+
+Goto http://yoursite.com/@@collective-pygal-plonestats.html
+
+This page  will give you an overview of the contents in your plonesite:
 
 - Keywords: which keywords are used in your site as a piechart
 
