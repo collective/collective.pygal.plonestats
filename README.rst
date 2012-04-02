@@ -13,13 +13,17 @@ It will give you an overview of the contents in your plonesite:
 - Content by Creator: Who create how many content items in a barchart
 
 - Content by types: which content types are used how frequently in a
-    horizontal barchart.
+horizontal barchart.
 
 - Review states: A piechart displaying how many items are in which
-    review states
+review states
 
-- Created items by year: A linechart showing the additions to your site
-    by year
+- Created items by year: A linechart showing the additions to your
+site by year
 
 - Created items by month: A filled linechart to visualize the growth
-    of the content in a plone site.
+of the content in a plone site.
+
+See http://pygal.org/ for more information.
+
+pygal requires 2.6 > python > 3.0
