@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="collective.pygal.plonestats">
+<body>
+  <metal:content-core fill-slot="content-core">
+    <metal:content-core define-macro="content-core">
+
+        <p tal:content="structure view/get_keywords" />
+
+        <p tal:content="structure view/get_creator" />
+        <p tal:content="structure view/get_types" />
+        <p tal:content="structure view/get_states" />
+        <p tal:content="structure view/get_created_by_year" />
+        <p tal:content="structure view/get_created_by_month" />
+
+
+
+    </metal:content-core>
+  </metal:content-core>
+</body>
+</html>

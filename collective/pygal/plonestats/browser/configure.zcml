@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.pygal.plonestats">
+
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+    <browser:page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        name="collective-pygal-plonestats.html"
+        class=".views.PloneStatsView"
+        allowed_interface=".views.IPloneStatsView"
+        template="plonestats.pt"
+        permission="cmf.ManagePortal" />
+
+
+</configure>
