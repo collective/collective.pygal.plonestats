@@ -42,6 +42,7 @@ class PloneStatsView(BrowserView):
 
     def get_creator(self):
         values = self.portal_catalog.Indexes['Creator'].uniqueValues(withLengths=True)
+        values = sorted(values, key=itemgetter(1), reverse=True)
         chart = pygal.Bar()
         chart.title = 'Creator'
         for value in values:
@@ -51,6 +52,7 @@ class PloneStatsView(BrowserView):
 
     def get_types(self):
         values = self.portal_catalog.Indexes['Type'].uniqueValues(withLengths=True)
+        values = sorted(values, key=itemgetter(1), reverse=True)
         chart = pygal.HorizontalBar()
         chart.title = 'Type'
         for value in values:

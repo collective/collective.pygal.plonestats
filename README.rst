@@ -15,19 +15,15 @@ This page  will give you an overview of the contents in your plonesite:
 
 - Keywords: which keywords are used in your site as a piechart
 
-- Content by Creator: Who create how many content items in a barchart
+- Content by Creator: Who created how many content items in a barchart
 
-- Content by types: which content types are used how frequently in a
-horizontal barchart.
+- Content by types: which content types are used how frequently in a horizontal barchart.
 
-- Review states: A piechart displaying how many items are in which
-review states
+- Review states: A piechart displaying how many items are in which review states
 
-- Created items by year: A linechart showing the additions to your
-site by year
+- Created items by year: A linechart showing the additions to your site by year
 
-- Created items by month: A filled linechart to visualize the growth
-of the content in a plone site.
+- Created items by month: A filled linechart to visualize the growth of the content in a plone site.
 
 See http://pygal.org/ for more information.
 
