@@ -2,18 +2,24 @@
       lang="en"
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="collective.pygal.plonestats">
+
+<head>
+<metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border',1);
+                             disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                             disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+</head>
 <body>
   <metal:content-core fill-slot="content-core">
     <metal:content-core define-macro="content-core">
 
-        <p tal:content="structure view/get_keywords" />
+        <figure tal:content="structure view/get_keywords" />
 
-        <p tal:content="structure view/get_creator" />
-        <p tal:content="structure view/get_types" />
-        <p tal:content="structure view/get_states" />
-        <p tal:content="structure view/get_created_by_year" />
-        <p tal:content="structure view/get_created_by_month" />
-
+        <figure tal:content="structure view/get_creator" />
+        <figure tal:content="structure view/get_types" />
+        <figure tal:content="structure view/get_states" />
+        <figure tal:content="structure view/get_created_by_year" />
+        <figure tal:content="structure view/get_created_by_month" />
 
 
     </metal:content-core>

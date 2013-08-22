@@ -30,42 +30,45 @@ class PloneStatsView(BrowserView):
     def portal(self):
         return getToolByName(self.context, 'portal_url').getPortalObject()
 
+    def _add_values(self, index, chart):
+        values = self.portal_catalog.Indexes[index].uniqueValues(withLengths=True)
+        values = sorted(values, key=itemgetter(1), reverse=True)
+        url = self.portal.absolute_url() + '/@@search?' + index + '='
+        for value in values:
+            k = {"title": value[0],
+                'xlink': {'href': url + value[0]}}
+            v = [{'value': value[1],
+                'xlink': {'href': url + value[0]}}]
+            chart.add(k, v)
 
     def get_keywords(self):
-        values = self.portal_catalog.Indexes['Subject'].uniqueValues(withLengths=True)
-        values = sorted(values, key=itemgetter(1), reverse=True)
+        index = 'Subject'
         chart = pygal.Pie()
         chart.title = 'Keywords'
-        for value in values:
-            chart.add(value[0], value[1])
+        values = self._add_values(index,chart)
         return chart.render()
 
     def get_creator(self):
-        values = self.portal_catalog.Indexes['Creator'].uniqueValues(withLengths=True)
-        values = sorted(values, key=itemgetter(1), reverse=True)
+        index = 'Creator'
         chart = pygal.Bar()
         chart.title = 'Creator'
-        for value in values:
-            chart.add(value[0], value[1])
+        values = self._add_values(index,chart)
         return chart.render()
 
 
     def get_types(self):
-        values = self.portal_catalog.Indexes['Type'].uniqueValues(withLengths=True)
-        values = sorted(values, key=itemgetter(1), reverse=True)
+        index = 'Type'
         chart = pygal.HorizontalBar()
         chart.title = 'Type'
-        for value in values:
-            chart.add(value[0], value[1])
+        values = self._add_values(index,chart)
         return chart.render()
 
 
     def get_states(self):
-        values = self.portal_catalog.Indexes['review_state'].uniqueValues(withLengths=True)
-        chart = pygal.Pie()
+        index = 'review_state'
+        chart = pygal.Pie(inner_radius=.5)
         chart.title = 'Review state'
-        for value in values:
-            chart.add(value[0], value[1])
+        values = self._add_values(index,chart)
         return chart.render()
 
 
