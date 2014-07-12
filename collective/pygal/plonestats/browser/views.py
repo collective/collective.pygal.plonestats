@@ -5,6 +5,7 @@ from zope.interface import implements, Interface
 
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 
 import  pygal
 
@@ -35,7 +36,7 @@ class PloneStatsView(BrowserView):
         values = sorted(values, key=itemgetter(1), reverse=True)
         url = self.portal.absolute_url() + '/@@search?' + index + '='
         for value in values:
-            k = {"title": value[0],
+            k = {"title": safe_unicode(value[0]),
                 'xlink': {'href': url + value[0]}}
             v = [{'value': value[1],
                 'xlink': {'href': url + value[0]}}]
